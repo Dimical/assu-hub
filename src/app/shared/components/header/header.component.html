@@ -1,0 +1,24 @@
+<!-- header.component.html -->
+
+<mat-toolbar color="primary">
+  <div class="logo">
+    <!-- Logo de l'application -->
+    <img src="assets/logo.png" alt="Logo de l'application" />
+  </div>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/">Accueil</button>
+  <button mat-button routerLink="/dashboard">Tableau de bord</button>
+  <button mat-button routerLink="/insureds">Assurés</button>
+  <button mat-button routerLink="/contracts">Contrats</button>
+  <span class="spacer"></span>
+  <div class="user-info">
+    <!-- Informations utilisateur et bouton de connexion/déconnexion -->
+    <span *ngIf="userAuthenticated; else loginLink">
+      Bonjour, {{ userName }}!
+      <button mat-button (click)="logout()">Déconnexion</button>
+    </span>
+    <ng-template #loginLink>
+      <button mat-button routerLink="/login">Connexion</button>
+    </ng-template>
+  </div>
+</mat-toolbar>
